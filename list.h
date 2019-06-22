@@ -121,7 +121,7 @@ struct list_iterator {
       return *this;
   }
 
-  list_iterator operator++(int) {
+  const list_iterator operator++(int) {
       list_iterator res(*this);
       ptr_ = ptr_->next;
       return res;
@@ -132,7 +132,7 @@ struct list_iterator {
       return *this;
   }
 
-  list_iterator operator--(int) {
+  const list_iterator operator--(int) {
       list_iterator res(*this);
       ptr_ = ptr_->prev;
       return res;
@@ -165,7 +165,7 @@ struct list_const_iterator {
   class list;
 
   template<typename> friend
-  class list_iterator;
+  struct list_iterator;
 
   list_const_iterator() = default;
 
@@ -188,7 +188,7 @@ struct list_const_iterator {
       return *this;
   }
 
-  list_const_iterator operator++(int) {
+  const list_const_iterator operator++(int) {
       list_const_iterator res(*this);
       ptr_ = ptr_->next;
       return res;
@@ -199,7 +199,7 @@ struct list_const_iterator {
       return *this;
   }
 
-  list_const_iterator operator--(int) {
+  const list_const_iterator operator--(int) {
       list_const_iterator res(*this);
       ptr_ = ptr_->prev;
       return res;
